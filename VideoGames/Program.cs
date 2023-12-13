@@ -1,4 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using VideoGames.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("VideoGamesDB");
+
+builder.Services.AddDbContext<VideoGamesDBContext>(option => option.UseSqlServer(connectionString));
 
 // Add services to the container.
 
