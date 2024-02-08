@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VideoGames.Models
 {
@@ -18,7 +19,11 @@ namespace VideoGames.Models
         [Required]
         public string Password { get; set; } = string.Empty;
 
+        public string Role { get; set; } = "User";
+
         public bool IsActive { get; set; } = true;
+
+        public ICollection<FavoriteGame> Favorites { get; set; } = new List<FavoriteGame>();
 
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();
     }

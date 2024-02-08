@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace VideoGames.Models
 {
@@ -13,9 +15,13 @@ namespace VideoGames.Models
         public string Content { get; set; } = string.Empty;
 
         [Required]
-        public User User { get; set; } = new User();
+        public int UserId { get; set; }
+
+        public virtual User User { get; set; } = new User();
 
         [Required]
-        public Game Game { get; set; } = new Game();
+        public int GameId { get; set; }
+
+        public virtual Game Game { get; set; } = new Game();
     }
 }
